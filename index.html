@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drizz – Dating Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1 class="logo">Drizz</h1>
+        <nav class="feature-nav">
+            <button class="nav-btn active" data-target="starter">Conversation Starter</button>
+            <button class="nav-btn" data-target="assistant">Conversation Assistance</button>
+            <button class="nav-btn" data-target="guru">Love Guru</button>
+        </nav>
+    </header>
+
+    <main class="feature-container">
+        <!-- Conversation Starter -->
+        <section id="starter" class="feature-section active">
+            <h2 class="section-title">Conversation Starter</h2>
+            <p class="section-desc">Upload a screenshot of someone's profile and Drizz will suggest a perfect opener.</p>
+            <form class="upload-form" id="starterForm">
+                <label class="upload-label">
+                    <span>Select screenshot (JPG/PNG)</span>
+                    <input type="file" accept="image/*" id="starterImage" required>
+                </label>
+                <button type="submit" class="action-btn">Generate Opener</button>
+            </form>
+            <div class="result-box" id="starterResult" hidden>
+                <h3>Suggested opener</h3>
+                <p class="result-text" id="starterText"></p>
+            </div>
+        </section>
+
+        <!-- Conversation Assistance -->
+        <section id="assistant" class="feature-section">
+            <h2 class="section-title">Conversation Assistance</h2>
+            <p class="section-desc">Stuck mid-chat? Upload a screenshot and let Drizz craft a witty reply.</p>
+            <form class="upload-form" id="assistantForm">
+                <label class="upload-label">
+                    <span>Select chat screenshot (JPG/PNG)</span>
+                    <input type="file" accept="image/*" id="assistantImage" required>
+                </label>
+                <button type="submit" class="action-btn">Suggest Reply</button>
+            </form>
+            <div class="result-box" id="assistantResult" hidden>
+                <h3>Suggested reply</h3>
+                <p class="result-text" id="assistantText"></p>
+            </div>
+        </section>
+
+        <!-- Love Guru -->
+        <section id="guru" class="feature-section">
+            <h2 class="section-title">Love Guru</h2>
+            <p class="section-desc">Need advice or just want to vent? Ask away and Drizz will listen.</p>
+            <form class="guru-form" id="guruForm">
+                <textarea id="guruQuestion" rows="4" placeholder="Type your thoughts or questions here..." required></textarea>
+                <button type="submit" class="action-btn">Ask Drizz</button>
+            </form>
+            <div class="result-box" id="guruResult" hidden>
+                <h3>Drizz says</h3>
+                <p class="result-text" id="guruText"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>© 2024 Drizz. Crafted with ❤️ for better conversations.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,187 @@
+/* Drizz – minimal, responsive dating assistant styles */
+:root {
+  --clr-bg: #fafafa;
+  --clr-primary: #ff3c6e;
+  --clr-primary-light: #ff5c86;
+  --clr-dark: #222;
+  --clr-gray: #666;
+  --radius: 10px;
+  --shadow: 0 4px 8px rgba(0,0,0,.04);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--clr-bg);
+  color: var(--clr-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.app-header {
+  background: #fff;
+  padding: 20px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--clr-primary);
+  letter-spacing: -0.5px;
+}
+
+.feature-nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--clr-gray);
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.nav-btn:hover {
+  color: var(--clr-primary);
+  background: rgba(255,60,110,.08);
+}
+
+.nav-btn.active {
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+  background: rgba(255,60,110,.1);
+}
+
+/* Main container */
+.feature-container {
+  flex: 1;
+  padding: 40px 20px;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.feature-section {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  animation: fade 0.3s ease;
+}
+
+.feature-section.active {
+  display: flex;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--clr-dark);
+}
+.section-desc {
+  font-size: .95rem;
+  color: var(--clr-gray);
+}
+
+.upload-form,
+.guru-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #fff;
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.upload-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: .9rem;
+  color: var(--clr-dark);
+  cursor: pointer;
+}
+
+.upload-label input {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  font-size: .9rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  font-size: .95rem;
+  resize: vertical;
+}
+
+.action-btn {
+  align-self: flex-start;
+  background: var(--clr-primary);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: .95rem;
+  font-weight: 500;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background .15s ease;
+}
+
+.action-btn:hover {
+  background: var(--clr-primary-light);
+}
+
+.result-box {
+  background: #fff;
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.result-text {
+  font-size: 1rem;
+  color: var(--clr-dark);
+  margin-top: 6px;
+  white-space: pre-wrap;
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  font-size: .8rem;
+  color: var(--clr-gray);
+  padding: 20px;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .section-title { font-size: 1.2rem; }
+  .upload-form, .guru-form { padding: 18px; }
+} 
