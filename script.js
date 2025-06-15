@@ -1,25 +1,26 @@
 // Drizz dating assistant stub logic
 
-// === OpenAI Integration ===
-const OPENAI_API_KEY = "sk-api-QJbidrZ7K1e6O2yrKzokT3BlbkFJvVulySGG3HAqhjFJVOuu";
+import OpenAI from "openai";
 
-async function callOpenAI(messages) {
-  const res = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${OPENAI_API_KEY}`,
+const client = new OpenAI({
+  apiKey: "<api key>",
+  baseURL: "https://api.x.ai/v1",
+});
+
+const completion = await client.chat.completions.create({
+  model: "grok-3",
+  messages: [
+    {
+      role: "system",
+      content: "You are Grok, a chatbot inspired by the Hitchhiker's Guide to the Galaxy."
     },
-    body: JSON.stringify({
-      model: "gpt-4o-mini",
-      messages,
-      temperature: 0.8,
-      max_tokens: 200,
-    }),
-  });
-  if (!res.ok) throw new Error("OpenAI API error");
-  const data = await res.json();
-  return data.choices[0].message.content.trim();
+    {
+      role: "user",
+      content: "What is the meaning of life, the universe, and everything?"
+    },
+  ],
+});
+console.log(completion.choices[0].message);
 }
 
 function fileToDataURL(file) {
